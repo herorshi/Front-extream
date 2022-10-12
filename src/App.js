@@ -32,7 +32,7 @@ function App() {
         if (search !== "") {
           let user = await axios({
             method: "post",
-            url: "http://localhost:4000/search_user",
+            url: "https://node-api-vercel-herorshi.vercel.app/search_user",
             data: { search: search },
             headers: { Accept: "application/json", "Content-Type": "application/json" }
           }).then(success => {
@@ -45,7 +45,7 @@ function App() {
         } else {
           let user = await axios({
             method: "get",
-            url: "http://localhost:4000/get_user",
+            url: "https://node-api-vercel-herorshi.vercel.app/get_user",
             headers: { Accept: "application/json", "Content-Type": "application/json" }
           }).then(success => {
             return success;
@@ -82,7 +82,7 @@ function App() {
         setStatusLoad(false);
         let delete_res = await axios({
           method: "post",
-          url: "http://localhost:4000/delete_user",
+          url: "https://node-api-vercel-herorshi.vercel.app/delete_user",
           data: { id_user: value },
           headers: { Accept: "application/json", "Content-Type": "application/json" }
         }).then(success => {
@@ -129,7 +129,7 @@ function App() {
         setForm={setForm}
       />
 
-      <div className="container mt-4">
+      <div className="container mt-4">  
         <div className="table">
           <div className="d-flex   ">
             <input type="text" placeholder="search" onChange={searchData} className="form-control w-200-px mb-4 " />
