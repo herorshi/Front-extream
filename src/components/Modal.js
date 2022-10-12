@@ -87,7 +87,7 @@ const ModalContent = props => {
     if (user || pass || confirm || name || surname || email) {
       return;
     }
-    props.setStatusLoad(true);
+
     if (props.statusUpdate) {
       let update_res = await axios({
         method: "post",
@@ -136,7 +136,6 @@ const ModalContent = props => {
         return success;
       });
       if (add_res.status === 200) {
-        props.setStatusLoad(false);
         props.setModal(false);
         changeUsername("", true);
         changePassword("", true);
@@ -154,6 +153,7 @@ const ModalContent = props => {
         });
       }
     }
+    props.setStatusLoad(true);
 
     //
   };
@@ -180,7 +180,7 @@ const ModalContent = props => {
     <>
       <Modal show={props.status}>
         <Modal.Header>
-          <Modal.Title>เพิ่ม Users</Modal.Title>
+          <Modal.Title> {props.statusUpdate ? "แก้ไข User" : "เพิ่ม Users"} </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="row g-0">

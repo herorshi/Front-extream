@@ -45,7 +45,7 @@ function App() {
         } else {
           let user = await axios({
             method: "get",
-            url: "http://localhost:4000/api",
+            url: "http://localhost:4000/get_user",
             headers: { Accept: "application/json", "Content-Type": "application/json" }
           }).then(success => {
             return success;
@@ -131,8 +131,9 @@ function App() {
 
       <div className="container mt-4">
         <div className="table">
-          <div className="d-flex ">
-            <input type="text" placeholder="search" onChange={searchData} className="form-control w-200-px mb-4 me-auto" />
+          <div className="d-flex   ">
+            <input type="text" placeholder="search" onChange={searchData} className="form-control w-200-px mb-4 " />
+            <span className="ms-3 me-auto fw-bold mb-4 pt-2">จำนวน {storeUser.length} User</span>
             <button onClick={() => addUser()} className="btn btn-success" style={{ height: "38px", width: "130px" }}>
               เพิ่ม User
             </button>
